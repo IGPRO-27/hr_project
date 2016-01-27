@@ -8,7 +8,16 @@
         <field name="arch" type="xml">
           <xpath expr="//page[@string='Information']" position="after">
 	    <page string="Works">
-              <field name="work_ids" />
+		<field name="work_ids" groups="project.group_tasks_work_on_tasks"  widget="many2many">
+		  <tree editable="top">
+		    <field name="date"/>
+		    <field name="task_id"/>
+		    <field name="name"/>
+		    <field name="hours" widget="float_time"/>
+		    <field name="user_id" context="{'default_groups_ref': ['base.group_user', 'project.group_project_user']}"/>
+		  </tree>
+		</field>
+
 	    </page>
             </xpath>
         </field>
