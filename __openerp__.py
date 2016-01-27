@@ -29,11 +29,11 @@
         # 'views/openacademy.xml',
         # 'views/partner.xml',
         # 'views/session_board.xml',
-        # 'views/report.xml',
+        'views/hr_project_view.xml',
 
     ],
     # only loaded in demonstration mode
     # 'demo': [
     #     'demo/demo.xml',
-    ],
+    # ],
 }
