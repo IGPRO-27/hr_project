@@ -7,4 +7,4 @@ class hrproject(models.Model):
     _name = 'hr.analytic.timesheet'
     _inherit = 'hr.analytic.timesheet'
 
-    work_ids = fields.Many2many('project.task.work', String="Works")
+    work_ids = fields.Many2one('project.task.work','hr_analytic_timesheet_id', String="Works")

@@ -4,22 +4,30 @@
     <record model="ir.ui.view" id="hr_timesheet_project_work">
         <field name="name">hr.timesheet.project.form</field>
         <field name="model">hr.analytic.timesheet</field>
-        <field name="inherit_id" ref="hr_timesheet.hr_timesheet_line_form" />
+        <field name="inherit_id" ref="hr_timesheet.hr_timesheet_line_tree" />
         <field name="arch" type="xml">
-          <xpath expr="//page[@string='Information']" position="after">
-	    <page string="Works">
-		<field name="work_ids" groups="project.group_tasks_work_on_tasks"  widget="many2many">
-		  <tree editable="top">
-		    <field name="date"/>
-		    <field name="task_id"/>
-		    <field name="name"/>
-		    <field name="hours" widget="float_time"/>
-		    <field name="user_id" context="{'default_groups_ref': ['base.group_user', 'project.group_project_user']}"/>
-		  </tree>
-		</field>
+          <xpath expr="//field[@name='user_id']" position="after">
+	    <field name="work_ids" groups="project.group_tasks_work_on_tasks">
+	      <tree>
+		<field name="display_name"/>
+	      </tree>
+	    </field>
+	    </xpath>
+        </field>
+    </record>
 
-	    </page>
-            </xpath>
+    <record model="ir.ui.view" id="timesheet_project_work">
+        <field name="name">hr.timesheet.sheet.project.form</field>
+        <field name="model">hr_timesheet_sheet.sheet</field>
+        <field name="inherit_id" ref="hr_timesheet_sheet.hr_timesheet_sheet_form" />
+        <field name="arch" type="xml">
+          <xpath expr="//field[@name='date']" position="after">
+	    <field name="work_ids" string= "Works" groups="project.group_tasks_work_on_tasks">
+	      <tree>
+		<field name="display_name" string="Work"/>
+	      </tree>
+	    </field>
+	    </xpath>
         </field>
     </record>
   </data>
