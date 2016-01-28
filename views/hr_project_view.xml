@@ -22,7 +22,7 @@
         <field name="inherit_id" ref="hr_timesheet_sheet.hr_timesheet_sheet_form" />
         <field name="arch" type="xml">
           <xpath expr="//field[@name='date']" position="after">
-	    <field name="work_ids" string= "Works" groups="project.group_tasks_work_on_tasks">
+	    <field name="work_ids" string= "" groups="project.group_tasks_work_on_tasks">
 	      <tree>
 		<field name="display_name" string="Work"/>
 	      </tree>
@@ -30,5 +30,17 @@
 	    </xpath>
         </field>
     </record>
+
+    <record model="ir.ui.view" id="timesheet_project_work_create_form">
+        <field name="name">hr.timesheet.sheet.project.create.form</field>
+        <field name="model">project.task.work</field>
+        <field name="inherit_id" ref="project.view_task_work_form" />
+        <field name="arch" type="xml">
+          <xpath expr="//field[@name='date']" position="after">
+	    <field name="task_id" string= "Task" />
+	  </xpath>
+        </field>
+    </record>
+
   </data>
 </openerp>
