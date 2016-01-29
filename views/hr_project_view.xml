@@ -7,11 +7,11 @@
         <field name="inherit_id" ref="hr_timesheet.hr_timesheet_line_tree" />
         <field name="arch" type="xml">
           <xpath expr="//field[@name='user_id']" position="after">
-	    <field name="work_ids" groups="project.group_tasks_work_on_tasks">
-	      <tree>
-		<field name="display_name"/>
-	      </tree>
-	    </field>
+	    <field name="work_ids" groups="project.group_tasks_work_on_tasks"/>
+	    <!--   <tree> -->
+	    <!-- 	<field colspan=30 name="display_name"/> -->
+	    <!--   </tree> -->
+	    <!-- </field> -->
 	    </xpath>
         </field>
     </record>
@@ -22,11 +22,11 @@
         <field name="inherit_id" ref="hr_timesheet_sheet.hr_timesheet_sheet_form" />
         <field name="arch" type="xml">
           <xpath expr="//field[@name='date']" position="after">
-	    <field name="work_ids" string= "" groups="project.group_tasks_work_on_tasks">
-	      <tree>
-		<field name="display_name" string="Work"/>
-	      </tree>
-	    </field>
+	    <field name="work_ids" string="Work" groups="project.group_tasks_work_on_tasks" />
+	    <!--   <tree> -->
+	    <!-- 	<field colspan=30 name="display_name" string="Work"/> -->
+	    <!--   </tree> -->
+	    <!-- </field> -->
 	    </xpath>
         </field>
     </record>
